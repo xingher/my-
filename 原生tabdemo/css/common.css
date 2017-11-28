@@ -1,0 +1,59 @@
+ul>li {
+	list-style: none;
+}
+
+.clearfix:after {
+	content: "";
+	display: block;
+	height: 0px;
+	overflow: hidden;
+	clear: both;
+}
+
+body {
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Helvetica, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", SimSun, sans-serif;
+}
+
+header {
+	background: #108ee9!important;
+}
+header>a{
+	color: #Fff;
+}
+.mui-title{
+	color: #fff;
+	text-align: start;
+}
+.mui-active {
+	color: #108ee9!important;
+}
+
+body .iconfont {
+	font-size: 24px;
+}
+.white{
+	color: #fff;
+}
+.red_5 {
+	color: #f46e65!important;
+}
+
+.red {
+	color: #f04134!important;
+}
+
+.blue {
+	color: #108ee9!important;
+}
+
+.grey_5 {
+	color: #d9d9d9!important;
+}
+
+.green_6 {
+	color: #00a854!important;
+}
+
+.cyan {
+	color: #3db8c1!important;
+}

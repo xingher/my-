@@ -1,0 +1,43 @@
+.mui-content .t_h {
+  line-height: 44px;
+  background: #108ee9;
+  text-align: center;
+  color: #fff;
+}
+.mui-content .t_h .back_icon {
+  color: #fff;
+  0padding: 10px;
+}
+.mui-content .t_h:first-child {
+  border-right: 1px solid #fff;
+}
+.mui-content .mui-scroll-wrapper {
+  top: 44px;
+}
+.mui-content .mui-scroll-wrapper .mui-scroll .mui-row .list_detail {
+  color: #5a5a5a;
+  background: #fff;
+  height: 60px;
+  position: relative;
+  border-bottom: 1px solid #d9d9d9;
+  padding-left: 15px;
+}
+.mui-content .mui-scroll-wrapper .mui-scroll .mui-row .list_detail p {
+  margin: 0px;
+  line-height: 30px;
+}
+.mui-content .mui-scroll-wrapper .mui-scroll .mui-row .list_detail #tixian_time {
+  position: absolute;
+  right: 8px;
+  bottom: 2px;
+  font-size: 10px;
+}
+.mui-content .mui-scroll-wrapper .mui-scroll .mui-row .list_status {
+  background: #fff;
+  height: 60px;
+  text-align: center;
+  color: #5a5a5a;
+  line-height: 60px;
+  font-size: 14px;
+  border-bottom: 1px solid #d9d9d9;
+}

@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="UTF-8" />
+		<title>Document</title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link rel="stylesheet" type="text/css" href="../../../css/mui.css" />
+		<link rel="stylesheet" type="text/css" href="../../../ali_icon/iconfont.css" />
+		<link rel="stylesheet" type="text/css" href="../../../css/common.css" />
+		<style type="text/css">
+			.mui-table-view .mui-media-object {
+				border-radius: 50%;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div class="mui-scroll-wrapper">
+			我是聊天页面
+		</div>
+
+		<script src="../../../js/mui.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../../../js/common.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			mui.init()
+			var _self, _next, _prev, nowLeft, endLeft;
+			mui.plusReady(function() {
+				
+				_self = plus.webview.currentWebview();
+				_next = plus.webview.getWebviewById("main_account.html");
+				_prev = plus.webview.getWebviewById("main_team.html");
+				_index = plus.webview.getLaunchWebview();
+				_self.drag({
+					direction: "left",
+					moveMode: "followFinger"
+				}, {
+					view: _next,
+					moveMode: 'follow'
+				}, function(e) {
+				if(e.type == "start") {
+					nowLeft = _self.getStyle().left;
+				}
+				if(e.type == "end") {
+					endLeft = _self.getStyle().left;
+					if(nowLeft != endLeft) {
+						_index.evalJS("util.toggleNview(3)");
+					}
+				}
+			});
+				_self.drag({
+					direction: "right",
+					moveMode: "followFinger"
+				}, {
+					view: _prev,
+					moveMode: 'follow'
+				}, function(e) {
+				if(e.type == "start") {
+					nowLeft = _self.getStyle().left;
+				}
+				if(e.type == "end") {
+					endLeft = _self.getStyle().left;
+					if(nowLeft != endLeft) {
+						_index.evalJS("util.toggleNview(1)");
+					}
+				}
+			});
+			})
+		</script>
+	</body>
+
+</html>

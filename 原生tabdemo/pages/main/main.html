@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title>首页</title>
+		<link rel="stylesheet" type="text/css" href="../../css/mui.min.css" />
+		<link rel="stylesheet" type="text/css" href="../../css/common.css" />
+		<link rel="stylesheet" type="text/css" href="../../ali_icon/iconfont.css" />
+		<style>
+			html,
+			body {
+				background-color: #efeff4;
+			}
+			
+			.title {
+				margin: 20px 15px 10px;
+				color: #6d6d72;
+				font-size: 15px;
+				padding-bottom: 51px;
+			}
+			
+			.mui-bar-tab .mui-tab-item {
+				color: #3d4245;
+			}
+			
+			.mui-tab-item>.mui-icon {
+				font-weight: 500;
+			}
+			
+			.own_bar_title {
+				line-height: 44px;
+			}
+			
+			.mui-bar.mui-bar-nav .mui-icon {
+				margin-left: 0px;
+			}
+			
+			#friend_list {
+				line-height: 44px;
+				padding-left: 10px;
+				display: none;
+			}
+		</style>
+	</head>
+
+	<body>
+		<header class="mui-bar mui-bar-nav">
+			<a class="mui-icon mui-pull-right" id="scan_box"><i class="iconfont icon-saomiao"> </i></a>
+			<a class="mui-icon mui-pull-right" id="msg_box"><i class="iconfont icon-xiaoxi"></i></a>
+			<!--<h1 class="mui-title">首页</h1>-->
+
+			<a class="own_bar_title">首页</a>
+			<a class="mui-pull-right" id="friend_list">通讯录</a>
+		</header>
+
+		<script src="../../js/mui.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../../js/common.js" type="text/javascript" charset="utf-8"></script>
+		<script src="http://mockjs.com/dist/mock.js"></script>
+		<script src="../../js/mock_common.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../../js/util.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			(function() {
+				mui.init({
+					swipeBack: true, //启用右滑关闭功能
+					subpages: [{
+							url: "main_index/main_index.html",
+							id: "main_index.html",
+							styles: {
+								left: '0px',
+								top: '45px',
+								bottom: '51px'
+							}
+						}, {
+							url: "main_team/main_team.html",
+							id: "main_team.html",
+							styles: {
+								left: '100%',
+								top: '45px',
+								bottom: '51px'
+							}
+						},
+						{
+							url: "main_chat/main_chat.html",
+							id: "main_chat.html",
+							styles: {
+								left: '200%',
+								top: '45px',
+								bottom: '51px'
+							}
+						},
+						{
+							url: "main_account/main_account.html",
+							id: "main_account.html",
+							styles: {
+								left: '300%',
+								top: '45px',
+								bottom: '51px'
+							}
+						},
+						{
+							url: "main_more/main_more.html",
+							id: "main_more.html",
+							styles: {
+								left: '400%',
+								top: '45px',
+								bottom: '51px'
+							}
+						}
+					]
+				});
+				var as = "pop-in";
+				mui.plusReady(function() {
+					var self = plus.webview.currentWebview(); // 设置凸起大图标为水平居中
+
+					mui(document).on("tap", ".tonew", toCreateNew); //点击前往新的页面
+
+					function toCreateNew() {
+						_this = this;
+						creatNewPage(_this.id) //这个函数在common.js 是创建页面的函数,主要功能,创建页面,避免重复创建
+					}
+
+					var aniShow = {};
+					util.initSubpage(aniShow);
+
+					var nview = plus.nativeObj.View.getViewById('tabBar'),
+						activePage = plus.webview.currentWebview(),
+						targetPage,
+						subpages = util.options.subpages,
+						pageW = window.innerWidth,
+						currIndex = 0;
+
+					/**
+					 * 根据判断view控件点击位置判断切换的tab
+					 */
+					nview.addEventListener('click', function(e) {
+						var clientX = e.clientX;
+						if(clientX > 0 && clientX <= parseInt(pageW * 0.2)) {
+							currIndex = 1;
+						} else if(clientX > parseInt(pageW * 0.2) && clientX <= parseInt(pageW * 0.4)) {
+							currIndex = 2;
+						} else if(clientX > parseInt(pageW * 0.4) && clientX <= parseInt(pageW * 0.6)) {
+							currIndex = 3;
+						} else if(clientX > parseInt(pageW * 0.6) && clientX <= parseInt(pageW * 0.8)) {
+							currIndex = 4;
+						} else {
+							currIndex = 5;
+						}
+						// 匹配对应tab窗口
+						changeSub(currIndex)
+						//底部选项卡切换
+						util.toggleNview(currIndex - 1);
+						//更新当前活跃的页面
+						activePage = targetPage;
+					});
+
+					function changeSub(index) {
+						var sub1 = plus.webview.getWebviewById("main_index.html");
+						var sub2 = plus.webview.getWebviewById("main_team.html");
+						var sub3 = plus.webview.getWebviewById("main_chat.html");
+						var sub4 = plus.webview.getWebviewById("main_account.html");
+						var sub5 = plus.webview.getWebviewById("main_more.html");
+						console.log(JSON.stringify(sub1.getStyle()));
+						var sub1From = sub1.getStyle().left;
+						var sub2From = sub2.getStyle().left;
+						var sub3From = sub3.getStyle().left;
+						var sub4From = sub4.getStyle().left;
+						var sub5From = sub5.getStyle().left;
+
+						var sub1To = (1 - index) * 100 + "%";
+						var sub2To = (2 - index) * 100 + "%";
+						var sub3To = (3 - index) * 100 + "%";
+						var sub4To = (4 - index) * 100 + "%";
+						var sub5To = (5 - index) * 100 + "%";
+						console.log("从" + sub1From + "去" + sub1To);
+						console.log("从" + sub2From + "去" + sub2To);
+						console.log("从" + sub3From + "去" + sub3To);
+						console.log("从" + sub4From + "去" + sub4To);
+						console.log("从" + sub5From + "去" + sub5To);
+
+						plus.webview.startAnimation({
+								'view': sub1,
+								'styles': {
+									'fromLeft': -+sub1From,
+									'toLeft': sub1To
+								},
+								'action': 'show'
+							}, {
+								'view': sub2,
+								'styles': {
+									'fromLeft': sub2From,
+									'toLeft': sub2To
+								},
+								'action': 'show'
+							},
+							function(e) {
+
+							}.bind(this)
+						)
+
+						plus.webview.startAnimation({
+								'view': sub3,
+								'styles': {
+									'fromLeft': sub3From,
+									'toLeft': sub3To
+								},
+								'action': 'show'
+							}, {
+								'view': sub4,
+								'styles': {
+									'fromLeft': sub4From,
+									'toLeft': sub4To
+								},
+								'action': 'show'
+							},
+							function(e) {
+
+							}.bind(this)
+						)
+						plus.webview.startAnimation({
+								'view': sub5,
+								'styles': {
+									'fromLeft': sub5From,
+									'toLeft': sub5To
+								},
+								'action': 'show'
+							},
+							function(e) {
+
+
+							}.bind(this)
+					)
+					}
+				});
+			})();
+		</script>
+	</body>
+
+</html>

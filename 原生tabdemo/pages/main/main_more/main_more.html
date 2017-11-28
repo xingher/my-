@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="UTF-8" />
+		<title>Document</title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link rel="stylesheet" type="text/css" href="../../../css/mui.min.css" />
+		<link rel="stylesheet" type="text/css" href="../../../ali_icon/iconfont.css" />
+		<link rel="stylesheet" type="text/css" href="../../../css/common.css" />
+		<link rel="stylesheet" type="text/css" href="../../../css/main/main_more/main_more.css" />
+	</head>
+
+	<body>
+		<div class="mui-content">
+			我是设置页
+		</div>
+		<script src="../../../js/mui.min.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			mui.init()
+			var _self, _prev, _index, nowLeft, endLeft;
+			mui.plusReady(function() {
+				
+				_self = plus.webview.currentWebview();
+				_prev = plus.webview.getWebviewById("main_account.html")
+				_index = plus.webview.getLaunchWebview();
+				_self.drag({
+					direction: "right",
+					moveMode: "followFinger"
+				}, {
+					view: _prev,
+					moveMode: 'follow'
+				}, function(e) {
+				if(e.type == "start") {
+					nowLeft = _self.getStyle().left;
+				}
+				if(e.type == "end") {
+					endLeft = _self.getStyle().left;
+					if(nowLeft != endLeft) {
+						_index.evalJS("util.toggleNview(3)");
+					}
+				}
+			});
+			
+				
+			})
+		</script>
+	</body>
+
+</html>

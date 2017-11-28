@@ -1,0 +1,17 @@
+.mui-content .mui-row .t_header {
+  text-align: center;
+  background: #95a5a6;
+  color: #fff;
+  line-height: 40px;
+  font-size: 14px;
+}
+.mui-content .mui-row .t_d {
+  text-align: center;
+  background: #fff;
+  color: #00a2ae;
+  line-height: 40px;
+  font-size: 14px;
+}
+.mui-content .mui-scroll-wrapper {
+  top: 85px;
+}

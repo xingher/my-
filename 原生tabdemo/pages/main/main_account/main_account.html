@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="UTF-8" />
+		<title>Document</title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link rel="stylesheet" type="text/css" href="../../../css/mui.min.css" />
+		<link rel="stylesheet" type="text/css" href="../../../css/common.css" />
+		<link rel="stylesheet" type="text/css" href="../../../ali_icon/iconfont.css" />
+		<link rel="stylesheet" type="text/css" href="../../../css/main/main_account/main_account.css" />
+	</head>
+
+	<body>
+		<div class="mui-content">
+			我是账户页面
+
+		</div>
+		<script src="../../../js/mui.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../../../js/common.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			mui.init()
+			var as = "pop-in";
+			var _self, _next, _prev, _index, nowLeft, endLeft;
+			mui.plusReady(function() {
+				_self = plus.webview.currentWebview();
+				_next = plus.webview.getWebviewById("main_more.html");
+				_prev = plus.webview.getWebviewById("main_chat.html")
+				_index = plus.webview.getLaunchWebview();
+				_self.drag({
+					direction: "left",
+					moveMode: "followFinger"
+				}, {
+					view: _next,
+					moveMode: 'follow'
+				}, function(e) {
+					//判断当前的状态，在拖动开始时获取拖动前的窗口的left值
+					if(e.type == "start") {
+						nowLeft = _self.getStyle().left;
+					}
+					//，在拖动结束时获取拖动后的窗口的left值
+					if(e.type == "end") {
+						endLeft = _self.getStyle().left;
+						if(nowLeft != endLeft) {
+							//如果left值不一样，则说明窗口改变了位置，拖动成功，通知主页面改变tab栏的状态
+							_index.evalJS("util.toggleNview(4)");
+						}
+					}
+				});
+				_self.drag({
+					direction: "right",
+					moveMode: "followFinger"
+				}, {
+					view: _prev,
+					moveMode: 'follow'
+				}, function(e) {
+					if(e.type == "start") {
+						nowLeft = _self.getStyle().left;
+					}
+					if(e.type == "end") {
+						endLeft = _self.getStyle().left;
+						if(nowLeft != endLeft) {
+							console.log("不一样")
+							_index.evalJS("util.toggleNview(2)");
+						}
+					}
+				});
+			
+			})
+		</script>
+	</body>
+
+</html>

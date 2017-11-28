@@ -1,0 +1,84 @@
+.mui-scroll-wrapper {
+  top: 45px;
+}
+.mui-scroll-wrapper .mui-scroll ul {
+  padding: 0px;
+  margin: 0px;
+}
+.mui-scroll-wrapper .mui-scroll ul li {
+  background: #fff;
+  margin-bottom: 8px;
+}
+.mui-scroll-wrapper .mui-scroll ul li .box_header {
+  padding: 0px 15px 15px 15px;
+  border-bottom: 1px solid #d9d9d9;
+}
+.mui-scroll-wrapper .mui-scroll ul li .box_header .box_header_header {
+  color: #3d4245;
+}
+.mui-scroll-wrapper .mui-scroll ul li .box_header .box_header_header .receive_name {
+  float: left;
+  line-height: 50px;
+}
+.mui-scroll-wrapper .mui-scroll ul li .box_header .box_header_header .receive_phone {
+  float: right;
+  line-height: 50px;
+}
+.mui-scroll-wrapper .mui-scroll ul li .box_header .box_header_footer .receive_address {
+  margin: 0px;
+  word-break: break-all;
+  line-height: 16px;
+  color: #3d4245;
+}
+.mui-scroll-wrapper .mui-scroll ul li .box_footer .mui-input-row {
+  height: 40px;
+}
+.mui-scroll-wrapper .mui-scroll ul li .box_footer .mui-input-row .radio_box {
+  width: 18px;
+  height: 18px;
+  top: 9px;
+  left: 15px;
+}
+.mui-scroll-wrapper .mui-scroll ul li .box_footer .mui-input-row .radio_box:checked:before {
+  color: #f56a00;
+}
+.mui-scroll-wrapper .mui-scroll ul li .box_footer .mui-input-row .radio_box:before {
+  font-size: 18px;
+}
+.mui-scroll-wrapper .mui-scroll ul li .box_footer .mui-input-row .radio_title {
+  float: left;
+  margin-left: 46px;
+  line-height: 40px;
+  font-size: 14px;
+  color: #f56a00;
+  font-weight: 500;
+}
+.mui-scroll-wrapper .mui-scroll ul li .box_footer .mui-input-row .edit_box {
+  float: right;
+  height: 40px;
+  line-height: 40px;
+  margin-right: 15px;
+  color: #3d4245;
+}
+.mui-scroll-wrapper .mui-scroll ul li .box_footer .mui-input-row .edit_box a {
+  color: #3d4245;
+  font-size: 14px;
+}
+.mui-scroll-wrapper .mui-scroll ul li .box_footer .mui-input-row .edit_box .iconfont {
+  font-size: 24px;
+  color: #3d4245;
+}
+.mui-scroll-wrapper .mui-scroll ul li .box_footer .mui-input-row .cut_box {
+  float: right;
+  height: 40px;
+  line-height: 40px;
+  margin-right: 15px;
+}
+.mui-scroll-wrapper .mui-scroll ul li .box_footer .mui-input-row .cut_box a {
+  color: #3d4245;
+  font-size: 14px;
+}
+.mui-scroll-wrapper .mui-scroll ul li .box_footer .mui-input-row .cut_box .iconfont {
+  font-size: 24px;
+  color: #3d4245;
+}

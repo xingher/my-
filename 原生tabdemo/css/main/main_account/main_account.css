@@ -1,0 +1,54 @@
+.own-table-view-cell {
+  padding: 6px 15px;
+}
+.mui-content .phone_module .module_box {
+  margin-top: 10px;
+  background: #fff;
+}
+.mui-content .phone_module .module_box .name_title {
+  margin: 0px;
+  padding: 6px 15px;
+  border-bottom: 1px solid #ecf0f1;
+}
+.mui-content .phone_module .module_box .name_info_title {
+  position: relative;
+}
+.mui-content .phone_module .module_box .name_info_title .img_head {
+  width: 60px;
+  height: 60px;
+  float: left;
+  margin: 8px 15px;
+}
+.mui-content .phone_module .module_box .name_info_title .name_info_box {
+  padding: 8px 0px;
+}
+.mui-content .phone_module .module_box .name_info_title .name_info_box p {
+  margin: 0px;
+  line-height: 20px;
+  color: #000;
+}
+.mui-content .phone_module .module_box .name_info_title .phone_icon {
+  position: absolute;
+  right: 15px;
+  top: 50%;
+  margin-top: -12px;
+  font-size: 30px;
+  color: #00a854;
+}
+.mui-content .mui-table-view .mui-table-view-cell .mui-navigate-right .iconfont {
+  padding-top: 4px;
+  font-size: 24px;
+}
+.mui-content .mui-table-view .mui-navigate-right .own-media-body {
+  line-height: 42px!important;
+}
+.mui-content .mui-table-view .mui-navigate-right .mui-media-body .mui-ellipsis {
+  padding-top: 4px;
+}
+.mui-content .mui-table-view .mui-navigate-right .mui-media-body .mui-ellipsis .yue {
+  color: #000000;
+  font-size: 16px;
+}
+.mui-content .mui-table-view .mui-navigate-right .mui-media-body .mui-ellipsis .margin_right {
+  margin-right: 24px;
+}
